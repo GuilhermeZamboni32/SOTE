@@ -1,0 +1,22 @@
+:root{
+--preto: #000000;
+--cinsa: #3b3a3a;
+--branco: #e3e8e9;
+--azul: #293db1 ; 
+--verde: #4dac16 ;
+--amarelo: #a5ac16;
+--laranja: #ac6916;
+--vermelho: #ac1616 ;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root, body, html{
+  height: 100vh;
+  font-family: var(--body-font);
+  background-color: var(--branco);
+}

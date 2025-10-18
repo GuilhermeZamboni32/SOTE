@@ -1,0 +1,176 @@
+/* src/pages/triagem/Triagem.css */
+
+.fila-container {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.fila-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.fila-table th, .fila-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.fila-table th {
+  background-color: #f7f7f7;
+  font-weight: bold;
+  color: var(--cinsa);
+}
+
+.fila-table tr:nth-child(even) {
+  background-color: #fdfdfd;
+}
+
+.fila-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.btn-triar {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--azul);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Estilos do Modal */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: var(--cinsa);
+}
+
+.cores-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 0;
+}
+
+.btn-cor {
+  width: 18%;
+  padding: 1rem 0;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-cor:hover {
+  transform: scale(1.05);
+}
+
+.btn-cor.selecionada {
+  border-color: var(--preto);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.vermelho { background-color: var(--vermelho); }
+.laranja { background-color: var(--laranja); }
+.amarelo { background-color: var(--amarelo); }
+.verde { background-color: var(--verde); }
+.azul { background-color: var(--azul); }
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.btn-cancelar, .btn-salvar {
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-cancelar {
+  background-color: #ccc;
+}
+
+.btn-salvar {
+  background-color: var(--verde);
+  color: white;
+}
+
+.btn-salvar:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.navegacao-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  /* Remove o posicionamento absoluto dos botões filhos */
+}
+
+/* Remove o posicionamento absoluto para que os botões fiquem dentro do header */
+.btn-voltar {
+  position: static; 
+  padding: 8px 16px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-voltar:hover {
+  background-color: #5a6268;
+}
+
+.btn-avancar {
+  padding: 8px 16px;
+  background-color: #0ebba1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-avancar:hover {
+  background-color: #13a247;
+}
+
+/* Ajusta o título para ficar abaixo dos botões */
+.fila-container h1 {
+  text-align: center;
+  width: 100%;
+}

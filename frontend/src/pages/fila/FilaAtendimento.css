@@ -1,0 +1,125 @@
+/* src/pages/fila-atendimento/FilaAtendimento.css */
+
+.fila-atendimento-container {
+  padding: 2rem;
+  background-color: #eef1f5;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.fila-atendimento-container h1 {
+  text-align: center;
+  color: var(--cinsa);
+  margin-bottom: 2rem;
+}
+
+.painel-pacientes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.paciente-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-left: 10px solid;
+}
+
+/* Cores das pulseiras */
+.paciente-card.vermelho { border-color: var(--vermelho); }
+.paciente-card.laranja { border-color: var(--laranja); }
+.paciente-card.amarelo { border-color: var(--amarelo); }
+.paciente-card.verde { border-color: var(--verde); }
+.paciente-card.azul { border-color: var(--azul); }
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background-color: #f8f9fa;
+}
+
+.classificacao-tag {
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+/* Cores de fundo das tags */
+.vermelho .classificacao-tag { background-color: var(--vermelho); }
+.laranja .classificacao-tag { background-color: var(--laranja); }
+.amarelo .classificacao-tag { background-color: var(--amarelo); color: var(--preto); }
+.verde .classificacao-tag { background-color: var(--verde); }
+.azul .classificacao-tag { background-color: var(--azul); }
+
+.tempo-espera {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--cinsa);
+}
+
+.card-body {
+  padding: 1.5rem 1rem;
+  flex-grow: 1;
+}
+
+.nome-paciente {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.card-footer {
+  padding: 1rem;
+  background-color: #f8f9fa;
+  text-align: right;
+}
+
+.btn-chamar {
+  background-color: rgb(10, 7, 60);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-chamar:hover {
+  background-color: rgb(63, 38, 126);
+  color: white;
+  border: none;
+}
+
+.fila-vazia {
+  font-size: 1.2rem;
+  color: var(--cinsa);
+  text-align: center;
+  grid-column: 1 / -1;
+}
+
+/* Animação que faz o elemento piscar */
+@keyframes piscar {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.9);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
+  }
+}
+
+/* Classe que aplica a animação ao card */
+.paciente-card.alerta-laranja {
+  animation: piscar 1.5s infinite;
+  border-color: var(--vermelho); /* Deixa a borda vermelha para maior destaque */
+}
