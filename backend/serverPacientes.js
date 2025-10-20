@@ -1,4 +1,4 @@
-//serverPacientes.js
+// backend/serverPacientes.js
 
 const express = require('express');
 const cors = require('cors');
@@ -22,7 +22,6 @@ app.post('/api/pacientes', async (req, res) => {
     }
 
     try {
-      
         let paciente;
         const pacienteExistente = await db.query('SELECT * FROM pacientes WHERE cpf = $1', [cpf]);
 
@@ -36,7 +35,6 @@ app.post('/api/pacientes', async (req, res) => {
             paciente = novoPaciente.rows[0];
         }
 
-     o
         const novoAtendimento = await db.query(
             'INSERT INTO atendimentos (paciente_id, queixa_principal, status, hora_chegada) VALUES ($1, $2, $3, NOW()) RETURNING *',
             [paciente.id, queixa_principal, 'Aguardando Triagem']
@@ -56,11 +54,6 @@ app.post('/api/pacientes', async (req, res) => {
 // =================================================================
 // ROTAS DA TELA DE TRIAGEM (H02)
 // =================================================================
-
-/**
- * @route 
- * @desc   
- */
 app.get('/api/atendimentos/aguardando-triagem', async (req, res) => {
   try {
     const query = `
@@ -82,10 +75,6 @@ app.get('/api/atendimentos/aguardando-triagem', async (req, res) => {
   }
 });
 
-/**
- * @route  
- * @desc   
- */
 app.post('/api/triagens', async (req, res) => {
   const { atendimento_id, classificacao } = req.body;
 
@@ -121,7 +110,8 @@ app.get('/api/atendimentos/aguardando-atendimento', async (req, res) => {
         atendimentos.id,
         pacientes.nome_completo,
         atendimentos.classificacao,
-        atendimentos.hora_fim_triagem
+        atendimentos.hora_fim_triagem,
+        atendimentos.queixa_principal
       FROM atendimentos
       JOIN pacientes ON atendimentos.paciente_id = pacientes.id
       WHERE atendimentos.status = 'Aguardando Atendimento'

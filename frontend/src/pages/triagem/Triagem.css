@@ -12,36 +12,69 @@
 .fila-container {
   padding: 2rem;
   font-family: Arial, sans-serif;
+  position: relative;
 }
 
-.fila-table {
+.fila-container h1 {
+  text-align: center;
+  width: 100%;
+}
+
+.fila-container .navegacao-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.fila-container .btn-voltar, 
+.fila-container .btn-avancar {
+  position: static;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.fila-container .btn-voltar {
+  background-color: #6c757d;
+  color: white;
+}
+.fila-container .btn-voltar:hover {
+  background-color: #5a6268;
+}
+
+.fila-container .btn-avancar {
+  background-color: var(--azul);
+  color: white;
+}
+.fila-container .btn-avancar:hover {
+  background-color: #1a278a;
+}
+
+.fila-container .fila-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.fila-table th, .fila-table td {
+.fila-container .fila-table th, 
+.fila-container .fila-table td {
   border: 1px solid #ddd;
   padding: 12px;
   text-align: left;
 }
 
-.fila-table th {
-  background-color: #f7f7f7;
+.fila-container .fila-table th {
+  background-color: #f7f7ff;
   font-weight: bold;
   color: var(--cinsa);
 }
 
-.fila-table tr:nth-child(even) {
-  background-color: #fdfdfd;
-}
-
-.fila-table tr:hover {
-  background-color: #f1f1f1;
-}
-
-.btn-triar {
+.fila-container .btn-triar {
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
@@ -51,8 +84,7 @@
   cursor: pointer;
 }
 
-
-.modal-backdrop {
+.fila-container .modal-backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -64,7 +96,7 @@
   align-items: center;
 }
 
-.modal-content {
+.fila-container .modal-content {
   background-color: white;
   padding: 2rem;
   border-radius: 8px;
@@ -73,18 +105,13 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.modal-content h2 {
-  margin-top: 0;
-  color: var(--cinsa);
-}
-
-.cores-container {
+.fila-container .cores-container {
   display: flex;
   justify-content: space-around;
   margin: 2rem 0;
 }
 
-.btn-cor {
+.fila-container .btn-cor {
   width: 18%;
   padding: 1rem 0;
   border: 2px solid transparent;
@@ -96,13 +123,23 @@
   transition: transform 0.2s;
 }
 
-.btn-cor:hover {
-  transform: scale(1.05);
+.fila-container .btn-cor.selecionada {
+  border-color: var(--preto);
 }
 
-.btn-cor.selecionada {
-  border-color: var(--preto);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+.fila-container .modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.fila-container .btn-cancelar {
+  background-color: #ccc;
+}
+
+.fila-container .btn-salvar {
+  background-color: var(--verde);
+  color: white;
 }
 
 .vermelho { background-color: var(--vermelho); }
@@ -138,14 +175,16 @@
   background-color: #aaa;
   cursor: not-allowed;
 }
-
 .navegacao-header {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+  padding: 0 1rem; 
+  box-sizing: border-box; 
 }
+
 
 .btn-voltar {
   position: static; 
@@ -162,9 +201,11 @@
   background-color: #5a6268;
 }
 
+
 .btn-avancar {
+  position: static;
   padding: 8px 16px;
-  background-color: #0ebba1;
+  background-color: var(--azul);
   color: white;
   border: none;
   border-radius: 5px;
@@ -173,7 +214,7 @@
 }
 
 .btn-avancar:hover {
-  background-color: #13a247;
+  background-color: #1a278a;
 }
 
 .fila-container h1 {

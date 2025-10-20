@@ -1,16 +1,32 @@
-// src/pages/fila-atendimento/FilaAtendimento.jsx
-
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './FilaAtendimento.css';
 import somAlerta from '../../assets/alerta.mp3';
 
+const InfoModal = ({ paciente, fecharModal }) => {
+  return (
+    <div className="modal-backdrop" onClick={fecharModal}>
+      <div className="modal-content" onClick={e => e.stopPropagation()}>
+        <h2>Detalhes do Paciente</h2>
+        <h3>{paciente.nome_completo}</h3>
+        <p><strong>Classificação:</strong> <span className={`classificacao-tag-modal ${paciente.classificacao.toLowerCase()}`}>{paciente.classificacao}</span></p>
+        <p><strong>Queixa Principal:</strong></p>
+        <p className="queixa-texto">{paciente.queixa_principal}</p>
+        <div className="modal-actions">
+          <button className="btn-fechar" onClick={fecharModal}>Fechar</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 function FilaAtendimento() {
   const [fila, setFila] = useState([]);
   const navigate = useNavigate();
   const audioPlayer = useRef(null);
   const [pacientesAlertados, setPacientesAlertados] = useState(new Set());
+  const [pacienteInfo, setPacienteInfo] = useState(null);
 
   const buscarFilaAtendimento = async () => {
     try {
@@ -63,7 +79,6 @@ function FilaAtendimento() {
     return apenasNumero ? diffMins : `${diffMins} min`;
   };
 
-
   const handleChamarPaciente = async (pacienteId) => {
     try {
       await axios.put(`http://localhost:3000/api/atendimentos/${pacienteId}/chamar`);
@@ -108,6 +123,7 @@ function FilaAtendimento() {
                   <p className="nome-paciente">{paciente.nome_completo}</p>
                 </div>
                 <div className="card-footer">
+                  <button className="btn-info" onClick={() => setPacienteInfo(paciente)}>Info</button>
                   <button className="btn-chamar" onClick={() => handleChamarPaciente(paciente.id)}>
                     Chamar Paciente
                   </button>
@@ -119,6 +135,8 @@ function FilaAtendimento() {
           <p className="fila-vazia">Nenhum paciente aguardando atendimento.</p>
         )}
       </div>
+
+      {pacienteInfo && <InfoModal paciente={pacienteInfo} fecharModal={() => setPacienteInfo(null)} />}
     </div>
   );
 }
