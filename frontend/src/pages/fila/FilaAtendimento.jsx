@@ -63,17 +63,12 @@ function FilaAtendimento() {
     return apenasNumero ? diffMins : `${diffMins} min`;
   };
 
-  // ***** NOVA FUNÇÃO PARA CHAMAR O PACIENTE *****
+
   const handleChamarPaciente = async (pacienteId) => {
     try {
-      // Faz a requisição para o backend para atualizar o status
       await axios.put(`http://localhost:3000/api/atendimentos/${pacienteId}/chamar`);
-
-      // Atualiza a tela IMEDIATAMENTE, removendo o paciente da lista
-      // Isso para o alerta visual, pois o card deixa de existir
       setFila(filaAtual => filaAtual.filter(p => p.id !== pacienteId));
       
-      // Remove o paciente da lista de alertas sonoros para garantir
       setPacientesAlertados(alertadosAtuais => {
         const novosAlertados = new Set(alertadosAtuais);
         novosAlertados.delete(pacienteId);
@@ -113,7 +108,6 @@ function FilaAtendimento() {
                   <p className="nome-paciente">{paciente.nome_completo}</p>
                 </div>
                 <div className="card-footer">
-                  {/* O BOTÃO AGORA CHAMA A NOVA FUNÇÃO */}
                   <button className="btn-chamar" onClick={() => handleChamarPaciente(paciente.id)}>
                     Chamar Paciente
                   </button>

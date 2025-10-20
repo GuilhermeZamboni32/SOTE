@@ -1,4 +1,13 @@
-/* src/pages/cadastro/Cadastro.css */
+:root{
+--preto: #000000;
+--cinsa: #3b3a3a;
+--branco: #e3e8e9;
+--azul: #293db1 ; 
+--verde: #4dac16 ;
+--amarelo: #a5ac16;
+--laranja: #ac6916;
+--vermelho: #ac1616 ;
+}
 
 .cadastro-container {
   display: flex;
@@ -6,21 +15,21 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  /* A cor de fundo já vem do index.css (var(--branco)) */
+  
 }
 
 .cadastro-form {
-  background-color: #ffffff; /* Usamos branco puro para o card do formulário */
+  background-color: #ffffff; 
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   width: 100%;
   max-width: 500px;
-  border-top: 5px solid var(--azul); /* Destaque azul no topo */
+  border-top: 5px solid var(--azul); 
 }
 
 h1 {
-  color: var(--cinsa); /* Usando a variável de cor cinza */
+  color: var(--cinsa); 
   margin-bottom: 1.5rem;
   text-align: center;
 }
@@ -32,7 +41,7 @@ h1 {
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  color: var(--cinsa); /* Usando a variável de cor cinza */
+  color: var(--cinsa); 
   font-weight: bold;
 }
 
@@ -47,7 +56,7 @@ h1 {
 
 .form-group input:focus {
   outline: none;
-  border-color: var(--azul); /* Borda azul ao focar no campo */
+  border-color: var(--azul); 
   box-shadow: 0 0 5px rgba(22, 45, 172, 0.2);
 }
 
@@ -56,7 +65,7 @@ h1 {
   padding: 0.8rem;
   border: none;
   border-radius: 4px;
-  background-color: var(--verde); /* Usando a variável de cor verde */
+  background-color: var(--verde); 
   color: white;
   font-size: 1.1rem;
   font-weight: bold;
@@ -65,5 +74,5 @@ h1 {
 }
 
 .submit-button:hover {
-  background-color: #3ca00e; /* Um tom de verde um pouco mais escuro no hover */
+  background-color: #3ca00e; 
 }

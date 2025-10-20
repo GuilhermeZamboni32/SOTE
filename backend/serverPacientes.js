@@ -1,8 +1,8 @@
-// backend/serverPacientes.js
+//serverPacientes.js
 
 const express = require('express');
 const cors = require('cors');
-const db = require('./db'); // Usando o nosso módulo de banco de dados
+const db = require('./db');
 require('dotenv').config();
 
 const app = express();
@@ -22,7 +22,7 @@ app.post('/api/pacientes', async (req, res) => {
     }
 
     try {
-        // Passo 1: Inserir ou encontrar o paciente
+      
         let paciente;
         const pacienteExistente = await db.query('SELECT * FROM pacientes WHERE cpf = $1', [cpf]);
 
@@ -36,7 +36,7 @@ app.post('/api/pacientes', async (req, res) => {
             paciente = novoPaciente.rows[0];
         }
 
-        // Passo 2: Criar o registro de atendimento
+     o
         const novoAtendimento = await db.query(
             'INSERT INTO atendimentos (paciente_id, queixa_principal, status, hora_chegada) VALUES ($1, $2, $3, NOW()) RETURNING *',
             [paciente.id, queixa_principal, 'Aguardando Triagem']
@@ -58,8 +58,8 @@ app.post('/api/pacientes', async (req, res) => {
 // =================================================================
 
 /**
- * @route   GET /api/atendimentos/aguardando-triagem
- * @desc    Busca a lista de pacientes para a tela de triagem
+ * @route 
+ * @desc   
  */
 app.get('/api/atendimentos/aguardando-triagem', async (req, res) => {
   try {
@@ -83,8 +83,8 @@ app.get('/api/atendimentos/aguardando-triagem', async (req, res) => {
 });
 
 /**
- * @route   POST /api/triagens
- * @desc    Salva a classificação de risco (cor) de um paciente
+ * @route  
+ * @desc   
  */
 app.post('/api/triagens', async (req, res) => {
   const { atendimento_id, classificacao } = req.body;
@@ -145,7 +145,7 @@ app.get('/api/atendimentos/aguardando-atendimento', async (req, res) => {
 
 // ROTA PARA O MÉDICO CHAMAR O PACIENTE (H06 - Início)
 app.put('/api/atendimentos/:id/chamar', async (req, res) => {
-  const { id } = req.params; // Pega o ID do atendimento da URL
+  const { id } = req.params; 
 
   try {
     const updateQuery = `

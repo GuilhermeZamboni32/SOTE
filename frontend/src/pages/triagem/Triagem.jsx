@@ -6,7 +6,7 @@ import './Triagem.css';
 import { useNavigate } from 'react-router-dom';
 
 const ModalTriagem = ({ atendimento, fecharModal, salvarClassificacao }) => {
-  // ... (Nenhuma alteração dentro deste componente)
+
   const [corSelecionada, setCorSelecionada] = useState(null);
   const cores = ['Vermelho', 'Laranja', 'Amarelo', 'Verde', 'Azul'];
 
@@ -80,12 +80,10 @@ function Triagem() {
 
   return (
     <div className="fila-container">
-      {/* Container para os botões de navegação */}
       <div className="navegacao-header">
         <button onClick={() => navigate(-1)} className="btn-voltar">
           &larr; Voltar para Cadastro 
         </button>
-        {/* NOVO BOTÃO PARA IR PARA A FILA */}
         <button onClick={() => navigate('/fila')} className="btn-avancar">
           Ver Fila de Atendimento &rarr;
         </button>

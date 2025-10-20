@@ -1,4 +1,13 @@
-/* src/pages/triagem/Triagem.css */
+:root{
+--preto: #000000;
+--cinsa: #3b3a3a;
+--branco: #e3e8e9;
+--azul: #293db1 ; 
+--verde: #4dac16 ;
+--amarelo: #a5ac16;
+--laranja: #ac6916;
+--vermelho: #ac1616 ;
+}
 
 .fila-container {
   padding: 2rem;
@@ -42,7 +51,7 @@
   cursor: pointer;
 }
 
-/* Estilos do Modal */
+
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -136,10 +145,8 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
-  /* Remove o posicionamento absoluto dos botões filhos */
 }
 
-/* Remove o posicionamento absoluto para que os botões fiquem dentro do header */
 .btn-voltar {
   position: static; 
   padding: 8px 16px;
@@ -169,7 +176,6 @@
   background-color: #13a247;
 }
 
-/* Ajusta o título para ficar abaixo dos botões */
 .fila-container h1 {
   text-align: center;
   width: 100%;

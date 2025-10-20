@@ -1,4 +1,13 @@
-/* src/pages/fila-atendimento/FilaAtendimento.css */
+:root{
+--preto: #000000;
+--cinsa: #3b3a3a;
+--branco: #e3e8e9;
+--azul: #293db1 ; 
+--verde: #4dac16 ;
+--amarelo: #a5ac16;
+--laranja: #ac6916;
+--vermelho: #ac1616 ;
+}
 
 .fila-atendimento-container {
   padding: 2rem;
@@ -29,7 +38,6 @@
   border-left: 10px solid;
 }
 
-/* Cores das pulseiras */
 .paciente-card.vermelho { border-color: var(--vermelho); }
 .paciente-card.laranja { border-color: var(--laranja); }
 .paciente-card.amarelo { border-color: var(--amarelo); }
@@ -51,7 +59,6 @@
   color: #fff;
 }
 
-/* Cores de fundo das tags */
 .vermelho .classificacao-tag { background-color: var(--vermelho); }
 .laranja .classificacao-tag { background-color: var(--laranja); }
 .amarelo .classificacao-tag { background-color: var(--amarelo); color: var(--preto); }
@@ -105,7 +112,6 @@
   grid-column: 1 / -1;
 }
 
-/* Animação que faz o elemento piscar */
 @keyframes piscar {
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
@@ -118,8 +124,7 @@
   }
 }
 
-/* Classe que aplica a animação ao card */
 .paciente-card.alerta-laranja {
   animation: piscar 1.5s infinite;
-  border-color: var(--vermelho); /* Deixa a borda vermelha para maior destaque */
+  border-color: var(--vermelho); 
 }

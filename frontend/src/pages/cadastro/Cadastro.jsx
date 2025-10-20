@@ -8,7 +8,7 @@ function Cadastro() {
   const [dataNascimento, setDataNascimento] = useState('');
   const [cpf, setCpf] = useState('');
   const [nomeMae, setNomeMae] = useState('');
-  // 1. ADICIONAR NOVO ESTADO PARA A QUEIXA PRINCIPAL
+ 
   const [queixaPrincipal, setQueixaPrincipal] = useState('');
 
   const navigate = useNavigate();
@@ -21,7 +21,6 @@ function Cadastro() {
       data_nascimento: dataNascimento,
       cpf: cpf,
       nome_mae: nomeMae,
-      // 2. ADICIONAR A QUEIXA AO OBJETO ENVIADO PARA O BACKEND
       queixa_principal: queixaPrincipal,
     };
 
@@ -30,15 +29,12 @@ function Cadastro() {
       
       alert(`Paciente "${response.data.paciente.nome_completo}" cadastrado. Aguardando triagem.`);
 
-      // Limpa todos os campos do formulário
       setNomeCompleto('');
       setDataNascimento('');
       setCpf('');
       setNomeMae('');
-      // 3. LIMPAR O CAMPO DA QUEIXA TAMBÉM
       setQueixaPrincipal('');
 
-      // 4. NAVEGAR PARA A TELA DE TRIAGEM APÓS O SUCESSO
       navigate('/triagem');
 
     } catch (error) {
@@ -55,7 +51,6 @@ function Cadastro() {
     <div className="cadastro-container">
       <h1>Cadastro de Paciente</h1>
       <form onSubmit={handleSubmit} className="cadastro-form">
-        {/* Campos existentes não mudam */}
         <div className="form-group">
           <label htmlFor="nome">Nome Completo</label>
           <input
@@ -66,8 +61,6 @@ function Cadastro() {
             required
           />
         </div>
-
-        {/* 5. ADICIONAR O NOVO CAMPO DE QUEIXA PRINCIPAL AO FORMULÁRIO */}
         <div className="form-group">
           <label htmlFor="queixa">Queixa Principal</label>
           <textarea
@@ -107,7 +100,6 @@ function Cadastro() {
             onChange={(e) => setNomeMae(e.target.value)}
           />
         </div>
-        {/* REMOVEMOS o onClick daqui para garantir que a navegação só ocorra após o sucesso */}
         <button type="submit" className="submit-button">Registrar e Enviar para Triagem</button>
       </form>
     </div>
